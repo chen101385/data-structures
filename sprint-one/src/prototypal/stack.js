@@ -5,16 +5,16 @@ var Stack = function() {
 
   // Use an object with numeric keys to store values
   someInstance.storage = {};
+  //create a counter for how big the stack is
   someInstance.howBig = 0;
-  // Implement the methods below
- 
+
   return someInstance;
   //return instance of stack constructor function
 };
 
 
 
-
+//create a methods object for all instances of stack
 var stackMethods = {
   push: function(value) {
     //count bigger
