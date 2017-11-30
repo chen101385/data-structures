@@ -14,12 +14,11 @@ var Queue = function() {
   someInstance.quantity = 0;
   someInstance.counter = 0;
   someInstance.firstItemKey = 0;
-  //copy properties of queueMethods into someInstance, so they can be accessed directly;
-
 
   return someInstance;
 };
 
+//create methods object as prototype for all instances of queues
 var queueMethods = {
   enqueue: function(value) {
     //add a value to the end of the queue
