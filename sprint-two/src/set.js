@@ -37,6 +37,9 @@ setPrototype.remove = function(item) {
 //input would be a value (string)
 //output would be the removal of the value from storage
   //check whether present in set 
+  if (this.contains(item)) {
+    this._storage.splice(this._storage.indexOf(item), 1);
+  }
 };
 
 /*
