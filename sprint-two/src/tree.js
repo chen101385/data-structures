@@ -38,18 +38,26 @@ treeMethods.contains = function(target) {
       //else, check if any children
         //if so, then for in loop of recursive call through current node's children
   //if no more children of any branch, (at bottom of tree) then false
-  if (this.value === target) {
-    return true;
-  } else if (this.children.length > 0) {
-    for (var i = 0; i < this.children.length; i++) {
-      if (this.children[i].value === target) {
-        return true;
-      } else {
-        this.children[i].contains(target);
+
+  var pass = false;
+
+  var ifContains = function(obj) {
+    if (obj.value === target) {
+      pass = true;
+    }
+    if (obj.children.length > 0) {  
+      for (var i = 0; i < obj.children.length; i++) {
+        if (obj.children[i].value === target) {
+          pass = true;
+        }
+        if (obj.children[i].children.length > 0) {
+          ifContains(obj.children[i]);
+        }
       }
     }
-  }
-  return false;
+  };
+  ifContains(this);
+  return pass;
 };
   
 
