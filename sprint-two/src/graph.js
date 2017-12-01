@@ -4,13 +4,9 @@
 var Graph = function() {
 
 //this = Object.create(Graph.prototype)
-//add node container object
-//add value property
-  // key equals counter
-  //value equals edge properties
-    //consider array or object for value data structure
-  //use counter to record value
-//add edge property (1+ edges)
+//add node container array
+//add edges array
+
 //return this
 };
 
