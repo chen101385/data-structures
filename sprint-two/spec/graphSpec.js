@@ -35,6 +35,13 @@ describe('graph', function() {
     expect(graph.hasEdge(3, 2)).to.equal(true);
     expect(graph.hasEdge(3, 1)).to.equal(false);
   });
+  
+  it('should search for reverse edges in the undirected graph', function() {
+    graph.addNode(4);
+    graph.addNode(5);
+    graph.addEdge(5, 4);
+    expect(graph.hasEdge(4, 5)).to.equal(true);
+  });
 
   it('should remove edges between nodes', function() {
     graph.addNode(4);
