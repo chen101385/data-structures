@@ -37,4 +37,22 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3, 7]);
   });
+
+  it ('should execute a callback in the correct order when changing directions multiple times using "depthFirstLog"', function() {
+    var array = [];
+    var func = function(value) { array.push(value); };
+    binarySearchTree.insert(2);
+    binarySearchTree.insert(1);
+    binarySearchTree.insert(4);
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(100);
+    binarySearchTree.insert(51);
+    binarySearchTree.insert(60);
+    binarySearchTree.insert(50);
+    binarySearchTree.insert(150);
+    binarySearchTree.insert(149);
+    binarySearchTree.insert(1000);
+    binarySearchTree.depthFirstLog(func);
+    expect(array).to.eql([5, 2, 1, 4, 3, 100, 51, 50, 60, 150, 149, 1000]);
+  });
 });
