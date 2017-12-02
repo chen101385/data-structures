@@ -12,7 +12,11 @@ HashTable.prototype.insert = function(k, v) {
   //already have index;
   //at index of storage array, assign 'tuple' to index of storage array 
     //for assigned tuple, index 0 is key; index 1 is value;
-  this._storage[index] = [k, v];
+  if (!this._storage[index]) {
+    this._storage[index] = [[k, v]];
+  } else {
+    this._storage[index].push([k, v]);
+  }
 };
 
 HashTable.prototype.retrieve = function(k) {
@@ -20,7 +24,14 @@ HashTable.prototype.retrieve = function(k) {
 //taking in a key (k)
   //go to the index assigned to key in hash function
   //return the tuple @ index
-  
+//ADD TEST check whether index occupied
+  if (this._storage[index].length) {
+    for (var i = 0; i < this._storage.length; i++) {
+      if (this._storage[index][i][0] === k) {
+        return this._storage[index][i];
+      }
+    }
+  }
 };
 
 HashTable.prototype.remove = function(k) {
@@ -29,6 +40,13 @@ HashTable.prototype.remove = function(k) {
   //going to index assigned to key in hash function
   //if first tuple's value = key, remove tuple
     //if first tuple's value doe not equal key, then search remaining tuples;
+  if (this._storage[index].length) {
+    for (var i = 0; i < this._storage.length; i++) {
+      if (this._storage[index][i][0] === k) {
+        this._storage[index].splice(indexOf(this._storage[index][i]), 1);
+      }
+    }
+  }
 };
 
 
