@@ -41,12 +41,12 @@ describe('tree', function() {
     expect(tree.contains(8)).to.equal(true);
   });
   
-  it('should return false if child is added with a value of undefined', function() {
+  it('should allow children to be added with value null, but not undefined', function() {
     tree.addChild(5);
     tree.addChild(6);
-    tree.children[0].addChild(7);
-    tree.children[1].addChild(undefined);
-    expect(tree.contains(undefined)).to.equal(false);
+    tree.addChild(undefined);
+    tree.addChild(null);
+    expect(tree.children[2].value).to.equal(null);
   });
 
   
