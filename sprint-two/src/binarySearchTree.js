@@ -3,7 +3,9 @@ var BinarySearchTree = function(value) {
 //search tree object
   var searchTree = Object.create(bSTMethods);
 
-  searchTree.root = new BSTNode(value);
+  searchTree.left = null;
+  searchTree.right = null;
+  searchTree.value = value;
   
   return searchTree;
 };
@@ -32,7 +34,7 @@ var bSTMethods = {
         }
       }
     };
-    traverseForInsert(value, this.root);
+    traverseForInsert(value, this);
   },
 
   contains: function(value) {
@@ -47,25 +49,40 @@ var bSTMethods = {
       //if lesser, check if left node exists
         //if so, move to left node and recurse contains
           //after full recursion of tree, return boolean based on whether value found
-
-
+    var isPresent = false;
+    var traverseForContains = function (value, currentNode) {
+      if (value === currentNode.value) {
+        isPresent = true;
+      }
+      if (!isPresent) {
+        if (value > currentNode.value) {
+          if (currentNode.right) {
+            traverseForContains(value, currentNode.right);
+          }
+        } 
+        if (value < currentNode.value) {
+          if (value < currentNode.left) {
+            traverseForContains(value, currentNode.left);
+          }
+        }
+      } 
+    };
+    traverseForContains(value, this);
+    return isPresent;
   },
 
 
 
 
-  depthFirstLog: function() {
-
+  depthFirstLog: function(callBack) {
+    
   //input = start @ root node
   //output = array containing all values in the BST
     //create an output array
-      //populate it with each traversed value
+      //populate it with each traversed and callbacked value
        //after full traversal, return array
+    var storageArray = [];
 
-  },
-
-  Node: function(value) {
-    return new BSTNode(value);
   }
 };
 
@@ -80,7 +97,11 @@ BSTNode = function(value) {
 //return this
 };
 
+//var binarySearchTree = BinarySearchTree( _____)
 
 /*
  * Complexity: What is the time complexity of the above functions?
+insert:
+contains:
+depthFirstLog:
  */
