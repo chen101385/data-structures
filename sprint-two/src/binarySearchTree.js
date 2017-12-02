@@ -110,7 +110,7 @@ BSTNode = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
-insert:
-contains:
-depthFirstLog:
+insert: logarithmic
+contains: logarithmic
+depthFirstLog: linear
  */
