@@ -56,4 +56,9 @@ var getIndexBelowMaxForKey = function(str, max) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+checklimit = constant 
+get = constant
+set = constant
+each = linear
+hash is constant relative to hash table functions
  */
