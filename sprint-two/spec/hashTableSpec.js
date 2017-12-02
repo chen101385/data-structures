@@ -47,6 +47,13 @@ describe('hashTable', function() {
     window.getIndexBelowMaxForKey = oldHashFunction;
   });
 
+  it('should not return a value if bucket has no contents at index', function() {
+  //search at index
+    //empty array (bucket) at index
+      //should return no value
+    expect(hashTable.retrieve('HRSF87')).to.equal(undefined);
+  });
+
   // (Advanced! Remove the extra "x" when you want the following tests to run)
   xit ('should double in size when needed', function() {
     _.each(people, function(person) {

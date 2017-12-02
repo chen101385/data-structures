@@ -40,12 +40,14 @@ HashTable.prototype.retrieve = function(k) {
   //go to the index assigned to key in hash function
   //return the tuple @ index
 //ADD TEST check whether index occupied
-  if (this._storage[index].length) {
-    for (var i = 0; i < this._storage[index].length; i++) {
-      if (this._storage[index][i][0] === k) {
-        return this._storage[index][i][1];
+  if (this._storage[index]) {
+    if (this._storage[index].length) {
+      for (var i = 0; i < this._storage[index].length; i++) {
+        if (this._storage[index][i][0] === k) {
+          return this._storage[index][i][1];
+        }
       }
-    }
+    } 
   }
 };
 
