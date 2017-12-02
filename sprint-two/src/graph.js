@@ -17,7 +17,6 @@ Graph.prototype.addNode = function(node) {
   //check whether a node already exists;
   if (!this.contains(node)) {
 
-
     this.nodes.push(node);
   }
 };
@@ -103,6 +102,8 @@ Graph.prototype.forEachNode = function(cb) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+All Linear
+
  */
 
 
