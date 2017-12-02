@@ -16,6 +16,12 @@ describe('linkedList', function() {
     expect(linkedList.contains).to.be.a('function');
   });
 
+  it('should have head and tail pointing to same node if only node in linkedlist', function() {
+    linkedList.addToTail(1);
+    expect(linkedList.tail.value).to.equal(1);
+    expect(linkedList.head.value).to.equal(1);
+  });
+
   it('should designate a new tail when new nodes are added', function() {
     linkedList.addToTail(4);
     expect(linkedList.tail.value).to.equal(4);
