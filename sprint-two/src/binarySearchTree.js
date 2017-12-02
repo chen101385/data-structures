@@ -81,8 +81,17 @@ var bSTMethods = {
     //create an output array
       //populate it with each traversed and callbacked value
        //after full traversal, return array
-    var storageArray = [];
+    var traverseForDepthFirstLog = function (currentNode) {
+      callBack(currentNode.value);
+      if (currentNode.left) {
+        traverseForDepthFirstLog(currentNode.left);
+      }
+      if (currentNode.right) {
+        traverseForDepthFirstLog(currentNode.right);
+      }
 
+    };
+    traverseForDepthFirstLog(this);
   }
 };
 
